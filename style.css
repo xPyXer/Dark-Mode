@@ -1,0 +1,85 @@
+/* Página */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* Declarei essas variaveis, pra sempre que eu precisar eu só colocar var( nome )*/
+:root {
+    --color-font: #000000;
+    --color-body: #ffffff;
+    --color-btn-dark: #ffffff;
+}
+body {
+    width: 100%;
+    height: 100vh;
+    transition: 1.5s;
+    background-color: var(--color-body);
+}
+
+/* Conteúdo */
+section {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+section h1 {
+    font-size: 50px;
+    color: var(--color-font);
+}
+
+/* Botão */
+.btn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 6rem;
+}
+
+#btn-dark-mode {
+    position: relative;
+    display: block;
+    width: 50px;
+    height: 25px;
+    background: var(--color-btn-dark);
+    border-radius: 20px;
+    top: 20px;
+    cursor: pointer;
+    box-shadow: inset 0 8px 60px rgba(0,0,0,0.1),
+                inset 0 8px 8px  rgba(0,0,0,0.1),
+                inset 0 -4px 4px rgba(0,0,0,0.1);
+    transition: 0.1s;
+}
+/* Bolinha do botão que vai pro lado esquerdo e pro direito, assim mudando pro light ou pro dark mode */
+.indicador {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 25px;
+    height: 25px;
+    background: #000;
+    border-radius: 50%;
+    transition: 0.5s;
+    transform: scale(0.9);
+    box-shadow: inset 0 8px 60px rgba(0,0,0,0.1),
+                inset 0 8px 8px  rgba(255,255,255,0.2),
+                inset 0 -4px 4px rgba(255,255,255,0.2);
+}
+/* Ativador do dark mode (não tem isso no html pq n precisa. O JS vai adicionar pra gnt) */
+.active-dark {
+    background: #000 !important;
+}
+
+#btn-dark-mode.active-dark .indicador {
+    left: 20px;
+    background: #fff;
+}
+/* active (vai mudar o conteudo para o dark mode) */
+.active:root{
+    --color-font: #777777;
+    --color-body: #100f0f;
+    --color-btn-dark: #8d8a8a;
+}
